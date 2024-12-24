@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:scrollbars="none"
+    android:background="@color/white">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+    <TextView
+        android:id="@+id/titlee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place Your Order"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Product Image -->
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:contentDescription="Product Image"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titlee"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Product Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Handcrafted Vase"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productImage" />
+
+    <!-- Product Price -->
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$49.99"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/theme_color"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <!-- Quantity Label -->
+    <TextView
+        android:id="@+id/quantityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Services:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/price" />
+
+    <!-- Quantity Input -->
+    <EditText
+        android:id="@+id/quantity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="Enter Services quantity"
+        android:inputType="number"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quantityLabel" />
+
+    <!-- Special Requirements Label -->
+    <TextView
+        android:id="@+id/specialRequirementsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Special Requirements:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quantity"
+        android:layout_marginTop="16dp" />
+
+    <!-- Special Requirements Input -->
+    <EditText
+        android:id="@+id/specialRequirements"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:inputType="textMultiLine|textCapSentences"
+        android:gravity="top"
+        android:hint="Add special requirements (optional)"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/specialRequirementsLabel"
+        android:layout_marginTop="8dp" />
+
+    <!-- Postal Address Label -->
+
+    <!-- Postal Address Input -->
+
+    <!-- User Contact Label -->
+    <TextView
+        android:id="@+id/userContactLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Number:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/specialRequirements" />
+
+    <!-- User Contact Input -->
+    <EditText
+        android:id="@+id/userContact"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter your contact number"
+        android:inputType="phone"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userContactLabel"
+        android:layout_marginTop="8dp" />
+
+    <!-- Place Order Button -->
+    <Button
+        android:id="@+id/bookRoomButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Book Services"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userContact" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

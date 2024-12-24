@@ -1,0 +1,131 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:layout_margin="8dp">
+
+        <!-- Order ID -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order ID"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderId"
+            android:text="12345"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp" />
+
+        <!-- Order Date -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Date"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderDate"
+            android:text="2024-12-10"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp" />
+
+        <!-- Item -->
+
+        <!-- Quantity -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rooms"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/quantity"
+            android:text="2"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp" />
+
+        <!-- Special Requirements -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Special Requirements"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/specialRequirements"
+            android:text="Fragile, Handle with care"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp" />
+
+        <!-- Postal Address -->
+
+        <!-- User Information -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Information"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userName"
+            android:text="John Doe"
+            android:textColor="@color/black"
+            android:paddingBottom="4dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userEmail"
+            android:text="johndoe@example.com"
+            android:textColor="@color/black"
+            android:paddingBottom="4dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userContact"
+            android:text="+123456789"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp" />
+
+        <!-- Status -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/status"
+            android:text="Pending"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp" />
+
+        <Button
+            android:id="@+id/confirm_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm Booking"
+            />
+
+        <Button
+            android:id="@+id/confirm_order_received"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm Booking Received"
+            />
+    </LinearLayout>
+</ScrollView>
