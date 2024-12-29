@@ -165,7 +165,7 @@
 
     <!-- Place Order Button -->
     <Button
-        android:id="@+id/bookRoomButton"
+        android:id="@+id/bookServiceButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

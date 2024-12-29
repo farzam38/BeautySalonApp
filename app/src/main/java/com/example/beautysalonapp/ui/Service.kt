@@ -12,6 +12,6 @@ class Service {
     var userFCMToken: String=""
     var status: String=""
     var servicebookedon: String=""
-    var servicebookingdate: String=""
+    var serviceBookingDate: String=""
 
 }

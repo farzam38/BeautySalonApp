@@ -89,17 +89,17 @@ class ServiceBookingActivity : AppCompatActivity() {
             datePicker.show()
         }
 
-        binding.bookRoomButton.setOnClickListener {
+        binding.bookServiceButton.setOnClickListener {
             val rooms = binding.quantity.text.toString().toIntOrNull()
             val specialRequirements = binding.specialRequirements.text.toString()
             val userContact = binding.userContact.text.toString()
-            val servicebookingdate = binding.servicebookingdate.text.toString()
+            val serviceBookingDate = binding.servicebookingdate.text.toString()
 
             if (rooms == null || userContact.isEmpty()) {
                 Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            viewModel.checkServiceAvailability(salon.id, servicebookingdate) { isAvailable ->
+            viewModel.checkServiceAvailability(salon.id, serviceBookingDate) { isAvailable ->
                 if (isAvailable) {
                     val service = Service()
                     service.item = salon
@@ -108,7 +108,7 @@ class ServiceBookingActivity : AppCompatActivity() {
                     service.specialRequirements = specialRequirements
                     service.userContact = userContact
                     service.servicebookedon = SimpleDateFormat("yyyy-MM-dd HH:mm a").format(System.currentTimeMillis())
-                    service.servicebookingdate = SimpleDateFormat("yyyy-MM-dd HH:mm a").toString()
+                    service.serviceBookingDate = serviceBookingDate
                     val user = viewModel.getCurrentUser()
                     service.userEmail = user?.email!!
                     service.userName = user?.displayName!!

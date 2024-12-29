@@ -19,6 +19,17 @@ class ServiceRepository {
             return Result.failure(e)
         }
     }
+
+    suspend fun saveSelectedDate(bookingId: String, selectedDate: String): Result<Boolean> {
+        return try {
+            val document = bookingCollection.document(bookingId)
+            val updates = mapOf("selectedDate" to selectedDate)
+            document.update(updates).await()
+            Result.success(true)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
     suspend fun updateService(service: Service): Result<Boolean> {
         try {
             val document = bookingCollection.document(service.id)

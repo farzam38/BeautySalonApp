@@ -1,5 +1,6 @@
 package com.example.beautysalonapp.ui.service
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.example.beautysalonapp.ui.Service
 import com.google.firebase.auth.FirebaseUser
 import com.google.gson.Gson
 import kotlinx.coroutines.launch
+import java.util.Calendar
 
 class ServiceDetailsActivity : AppCompatActivity() {
     lateinit var binding: ActivityServicesDetailsBinding;
@@ -30,7 +32,7 @@ class ServiceDetailsActivity : AppCompatActivity() {
         binding.specialRequirements.text = service.specialRequirements
         binding.userName.text = service.userName
         binding.userEmail.text = service.userEmail
-        binding.servicebookingdate.text = service.servicebookingdate
+        binding.servicebookingdate.text = service.serviceBookingDate
         binding.userContact.text = service.userContact
         binding.status.text = service.status
 
@@ -48,24 +50,48 @@ class ServiceDetailsActivity : AppCompatActivity() {
             viewModel.updateService(service)
         }
 
-        lifecycleScope.launch {
-            viewModel.isUpdated.collect {
-                it?.let {
-                    if (service.status.equals("Service Booking Confirmed")) {
-                        NotificationsRepository().sendNotification(service.userId, "Service Booking Confirmed", "Your order of ${service.item?.title} has been confirmed", this@ServiceDetailsActivity)
-                    }
-                    Toast.makeText(this@ServiceDetailsActivity, "Updated", Toast.LENGTH_SHORT).show()
-                    finish()
-                }
-            }
-        }
-        lifecycleScope.launch {
-            viewModel.failureMessage.collect {
-                it?.let {
-                    Toast.makeText(this@ServiceDetailsActivity, it, Toast.LENGTH_SHORT).show()
-                }
+        binding.servicebookingdate.setOnClickListener {
+            showDatePickerDialog { date ->
+                binding.servicebookingdate.text = date
+                service.serviceBookingDate = date
             }
         }
 
+            lifecycleScope.launch {
+                viewModel.isUpdated.collect {
+                    it?.let {
+                        if (service.status.equals("Service Booking Confirmed")) {
+                            NotificationsRepository().sendNotification(
+                                service.userId,
+                                "Service Booking Confirmed",
+                                "Your order of ${service.item?.title} has been confirmed",
+                                this@ServiceDetailsActivity
+                            )
+                        }
+                        Toast.makeText(this@ServiceDetailsActivity, "Updated", Toast.LENGTH_SHORT)
+                            .show()
+                        finish()
+                    }
+                }
+            }
+            lifecycleScope.launch {
+                viewModel.failureMessage.collect {
+                    it?.let {
+                        Toast.makeText(this@ServiceDetailsActivity, it, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+        private fun showDatePickerDialog(onDateSelected: (String) -> Unit) {
+            val calendar = Calendar.getInstance()
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+            DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate =
+                    "${selectedYear}-${selectedMonth + 1}-${selectedDay}" // Format: YYYY-MM-DD
+                onDateSelected(selectedDate)
+            }, year, month, day).show()
+        }
+
     }
-}

@@ -12,6 +12,18 @@ class ServiceDetailsViewModel:ViewModel() {
 
     val isUpdated= MutableStateFlow<Boolean?>(null)
     val failureMessage= MutableStateFlow<String?>(null)
+    val isDateSaved = MutableStateFlow<Boolean?>(null)
+
+    fun saveSelectedDate(bookingId: String, selectedDate: String) {
+        viewModelScope.launch {
+            val result = serviceRepository.saveSelectedDate(bookingId, selectedDate)
+            if (result.isSuccess) {
+                isDateSaved.value = true
+            } else {
+                failureMessage.value = result.exceptionOrNull()?.message
+            }
+        }
+    }
 
     public fun updateService(service:Service){
         viewModelScope.launch {

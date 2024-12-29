@@ -30,7 +30,7 @@ class ServiceBookingViewModel:ViewModel() {
                 val isAvailable = bookings?.none { booking ->
                     // Check if the booking dates overlap
                     val isOverlapping =
-                        (servicebookingdate < booking.servicebookingdate )
+                        (servicebookingdate < booking.serviceBookingDate )
                     booking.item?.id == salonId && isOverlapping
                 }
                 callback(isAvailable!!)
