@@ -83,7 +83,7 @@
             android:layout_marginTop="16dp"
             android:drawableTint="@color/white"
             android:hapticFeedbackEnabled="true"
-            android:text="Book Room"
+            android:text="Book Service"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

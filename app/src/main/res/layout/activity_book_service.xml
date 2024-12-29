@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Services:"
+        android:text="Persons:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/price" />
 
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_background"
-        android:hint="Enter Services quantity"
+        android:hint="Enter Persons quantity"
         android:inputType="number"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
