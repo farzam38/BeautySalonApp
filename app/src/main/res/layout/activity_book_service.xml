@@ -42,12 +42,12 @@
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Handcrafted Vase"
+        android:layout_marginTop="8dp"
+        android:text="Manicure"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/productImage" />
 
     <!-- Product Price -->
@@ -55,11 +55,11 @@
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$49.99"
+        android:layout_marginTop="4dp"
+        android:text="Rs. 4999"
+        android:textColor="@color/theme_color"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/theme_color"
-        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
@@ -112,6 +112,30 @@
         app:layout_constraintTop_toBottomOf="@id/specialRequirementsLabel"
         android:layout_marginTop="8dp" />
 
+    <!-- Check-in Date Input -->
+    <TextView
+        android:id="@+id/servicebookingdateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Booking Date:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/specialRequirements" />
+
+
+    <!-- User Contact Label -->
+
+    <Button
+        android:id="@+id/servicebookingdate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_background"
+        android:text="Select Booking Date"
+        android:padding="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/servicebookingdateLabel" />
+
     <!-- Postal Address Label -->
 
     <!-- Postal Address Input -->
@@ -123,7 +147,7 @@
         android:layout_height="wrap_content"
         android:text="Contact Number:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/specialRequirements" />
+        app:layout_constraintTop_toBottomOf="@+id/servicebookingdate" />
 
     <!-- User Contact Input -->
     <EditText

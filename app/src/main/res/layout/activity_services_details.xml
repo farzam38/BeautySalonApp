@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Order ID"
+            android:text="Service ID"
             android:textStyle="bold" />
         <TextView
             android:layout_width="match_parent"
@@ -30,17 +30,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Order Date"
+            android:text="Servce Booked On "
             android:textStyle="bold" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/orderDate"
+            android:id="@+id/servicebookedon"
             android:text="2024-12-10"
             android:textColor="@color/black"
             android:paddingBottom="8dp" />
 
         <!-- Item -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Service Booking Date"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/servicebookingdate"
+            android:text="2024-12-10"
+            android:textColor="@color/black"
+            android:paddingBottom="8dp" />
 
         <!-- Quantity -->
         <TextView
@@ -121,11 +133,5 @@
             android:text="Confirm Booking"
             />
 
-        <Button
-            android:id="@+id/confirm_order_received"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Confirm Booking Received"
-            />
     </LinearLayout>
 </ScrollView>

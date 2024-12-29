@@ -81,10 +81,20 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener {
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.item_logout) {
+        when (item.itemId) {
+            R.id.item_logout -> {
+                val viewModel = MainViewModel() // Ensure MainViewModel is initialized properly
+                viewModel.logout() // Call the logout function from MainViewModel
 
-        } else if (item.itemId == R.id.item_about_us) {
-
+                // Navigate to LoginActivity after logout
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish() // End the current activity
+            }
+            R.id.item_about_us -> {
+                // Handle the About Us navigation
+            }
         }
         return true
     }

@@ -29,7 +29,17 @@ class ServiceRepository {
         }
     }
 
-    fun getBooking() =
-        bookingCollection.snapshots().map { it.toObjects(Service::class.java) }
+    suspend fun getBooking(): Result<List<Service>?> {
+        try {
+            val querySnapshot = bookingCollection.get().await()
+            val services = querySnapshot.documents.mapNotNull { document ->
+                document.toObject(Service::class.java)
+            }
+            return Result.success(services)
+        } catch (e: Exception) {
+            return Result.failure(e)
+        }
+    }
+
 
 }

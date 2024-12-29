@@ -15,17 +15,17 @@ class ServiceFragmentViewModel : ViewModel() {
     val data = MutableStateFlow<List<Service>?>(null)
 
     init {
-        readHotels()
+        readSalons()
     }
 
-    fun readHotels() {
+    fun readSalons() {
         viewModelScope.launch {
-            serviceRepository.getBooking().catch {
-                failureMessage.value = it.message
+            val result = serviceRepository.getBooking()
+            if (result.isSuccess) {
+                data.value = result.getOrNull()
+            } else {
+                failureMessage.value = result.exceptionOrNull()?.message
             }
-                .collect {
-                    data.value = it
-                }
         }
     }
 }

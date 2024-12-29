@@ -26,10 +26,11 @@ class ServiceDetailsActivity : AppCompatActivity() {
         service = Gson().fromJson(intent.getStringExtra("data"), Service::class.java)
 
         binding.orderId.text = service.id
-        binding.orderDate.text = service.orderDate
+        binding.servicebookedon.text = service.servicebookedon
         binding.specialRequirements.text = service.specialRequirements
         binding.userName.text = service.userName
         binding.userEmail.text = service.userEmail
+        binding.servicebookingdate.text = service.servicebookingdate
         binding.userContact.text = service.userContact
         binding.status.text = service.status
 

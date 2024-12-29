@@ -18,6 +18,26 @@ class ServiceBookingViewModel:ViewModel() {
 
     fun getCurrentUser() = authRepository.getCurrentUser()
 
+    fun checkServiceAvailability(
+        salonId: String,
+        servicebookingdate: String,
+        callback: (Boolean) -> Unit
+    ) {
+        viewModelScope.launch {
+            // Collect the booking flow before checking availability
+            val bookingList = serviceRepository.getBooking()
+            bookingList.onSuccess { bookings ->
+                val isAvailable = bookings?.none { booking ->
+                    // Check if the booking dates overlap
+                    val isOverlapping =
+                        (servicebookingdate < booking.servicebookingdate )
+                    booking.item?.id == salonId && isOverlapping
+                }
+                callback(isAvailable!!)
+            }
+        }
+    }
+
     fun saveService(service:Service){
         viewModelScope.launch {
             val result=serviceRepository.saveService(service)
