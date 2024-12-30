@@ -80,6 +80,7 @@ dependencies {
 
     implementation("com.mcxiaoke.volley:library:1.0.19")
     implementation("com.google.auth:google-auth-library-oauth2-http:1.19.0")
+    implementation("com.airbnb.android:lottie:3.4.0")
 
 }
 
