@@ -12,11 +12,12 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         tools:replace="android:fullBackupContent"
-
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BeautySalonApp"
         tools:targetApi="31">
+
+        <!-- SplashScreenActivity is now the launcher activity -->
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
@@ -25,6 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Removed the LAUNCHER intent-filter from LoginActivity so it won't be the first activity -->
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="true">
+            <!-- No LAUNCHER intent-filter, so it won't be the entry point -->
+        </activity>
+
+        <!-- Other activities -->
         <activity
             android:name=".ui.service.ServiceDetailsActivity"
             android:exported="false" />
@@ -37,15 +47,6 @@
         <activity
             android:name=".ui.salon.SalonDetailsActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.auth.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true" />
